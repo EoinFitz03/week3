@@ -32,4 +32,34 @@ public class week3 {
 
     }
 
+    @GetMapping("/calculate")
+    public String getcalculate(@RequestParam int num1, @RequestParam int num2, @RequestParam String operation ){
+
+    switch(operation){
+
+        case "add":
+            return "operation " +operation+ "total " +(num1 + num2);
+
+
+        case "subtract":
+            return "operation " +operation+ "total " +(num1 - num2);
+
+        case "divide":
+            if(num2==0) {
+            return "Cannot divide by zero";
+        }
+            return "operation " +operation+ "total " +(num1/num2);
+
+
+        case "multiply":
+            return "operation " +operation+ "total " +(num1*num2);
+
+        default: return "Error";
+
+
+    }
+
+
+    }
+
 }
